@@ -1,0 +1,25 @@
+<?php
+include("connection.php");
+$id=$_GET['id'];
+$uId=$_GET['uId'];
+$query="UPDATE `requesttable` SET `recipient_status`=1 WHERE `fk_user_id`='$id' AND recipient_id = $uId";
+$result=mysqli_query($con,$query);
+if($result)
+{
+?>
+<script>
+alert("approved");
+window.location.href='chat.php';
+</script>
+<?php
+}
+else
+{
+?>
+<script>
+alert("faild");
+history.back();
+</script>
+<?php
+}
+?>
